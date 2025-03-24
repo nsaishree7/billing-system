@@ -1,0 +1,31 @@
+.toast-pos{
+    position: absolute;
+    top: 0;
+    left:98%;
+    width: unset !important;
+    max-width: unset !important;
+    /* width: 45px; */
+    /* cursor: pointer; */
+}
+.toastbtn{
+    font-size: 13px !important;
+    padding: 1px;
+    
+}
+
+.hover-msg{
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.hover{
+    display: none;
+}
+.toast-pos:hover .hover{
+    display: block;
+}
+.toast-pos:hover .warn{
+    display: none;
+}

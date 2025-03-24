@@ -1,0 +1,12 @@
+.table_container{
+    width:80%;
+    margin:auto;
+    height: 80%;
+    overflow-y: scroll;
+
+}
+
+.filterContainer{
+    width: 50%;
+    margin: auto;
+}

@@ -1,0 +1,33 @@
+.container7{
+    display: grid;
+    grid-template-columns: 0.6fr 3fr;
+    grid-template-rows: 1fr 8fr;
+    grid-template-areas: "sidetab title"
+                        "sidetab main" ;
+                        height: 100vh;
+                        
+
+}
+
+.container7 > .title7{
+    grid-area: title;
+}
+.container7>.sidetab7{
+    grid-area: sidetab;
+    border:  0 3px 0 0solid grey;
+    
+}
+.container7>.sidetab7 > div{
+    height: 100%;
+}
+
+.container7>.main7{
+    grid-area: main;
+}
+
+.title7{
+    text-align: center;
+    border-bottom: 3px solid rgba(128, 128, 128, 0.584);
+    margin-top: 10px;
+    color: blueviolet;
+}
