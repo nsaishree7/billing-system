@@ -1,0 +1,35 @@
+
+1. pk guarantees  uniqueness but not continuity
+
+        problems faced while using generator sequence to rollback primary key
+                    1.not able to get the same transaction manager thread hence considered as a separate transaction
+                        and @Transactional doesn't rollback
+
+
+        Generated IDs are usually incremented outside the transaction,
+        or else
+         could create redundant pk
+                 1. nextVal -> x
+                 2. saved to db x pk
+                 3.nextVal ->x+1
+                 4.saved to db x+1 pk entry
+                 5. x pk exception tries rollback ,updates nextVal  ->x+1-1 ->x
+                 6.next pk entry would be x+1 race condtn
+
+        to solve this we have to block all other transaction that need to insert new rows.
+
+
+
+2. Solution came up with
+
+    have invoiceId as pk for invoiceId table
+
+    Table(invoice_no)
+userId invoiceId      invoiceNo  set/notSet
+                (unique
+                ,null)
+
+lock the invoice_id for userid, record alone, with pessimistic lock
+            a.update invoice no after all steps in invoice db
+                so that exception in other steps doesn't require rollback of invoice number
+            b. update invoiceNo to max(invoiceNo)+1

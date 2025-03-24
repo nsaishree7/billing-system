@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 20px;
+        }
+        .invoice-box {
+            width: 100%;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .center {
+            text-align: center;
+        }
+        .heading {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        .subheading {
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+        }
+        .details-table,
+        .product-table,
+        .total-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .details-table td,
+        .product-table th,
+        .product-table td,
+        .total-table td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .product-table th {
+            background: #f2f2f2;
+        }
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+        }
+        .note {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-box">
+
+    <div class="heading">ALFA ENTERPRISES</div>
+    <div class="center">M-217, OLD ASTC HUDCO, HOSUR-635109, Krishnagiri District</div>
+    <div class="center">Email: nsalfananas@gmail.com &#160;&#160; Phone No: 9443365298, 04344-265298</div>
+    <div class="center">GST IN: 33AAWPN3575D1ZF &#160;&#160;&#160;&#160; Code: TN-33</div>
+
+    <br/>
+    <div class="subheading">TAX INVOICE</div>
+
+    <table class="details-table">
+        <tr>
+            <td colspan="2"><strong>Buyer (Bill To)</strong><br/>${buyerName}</td>
+            <td><strong>Bill No:</strong> ${billNo}<br/>
+                <strong>Date:</strong> ${billDate}<br/>
+                <strong>P.O. No:</strong> ${poNo}<br/>
+                <strong>P.O. Date:</strong> ${poDate}<br/>
+                <strong>Vendor Code:</strong>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><strong>GSTIN:</strong> ${buyerGstin}</td>
+        </tr>
+    </table>
+
+    <table class="product-table">
+        <thead>
+<!--        <tr>-->
+<!--            <th>Part No.</th>-->
+<!--            <th>Description</th>-->
+<!--            <th>HSN/SAC CODE</th>-->
+<!--            <th>Qty</th>-->
+<!--            <th>Unit</th>-->
+<!--            <th>Rate</th>-->
+<!--            <th>Amount</th>-->
+<!--        </tr>-->
+        ${itemHeaders}
+        </thead>
+        <tbody>
+        ${itemRows}
+        </tbody>
+    </table>
+
+    <table class="total-table">
+        <tr><td colspan="6">Total</td><td>${total}</td></tr>
+<!--        <tr><td colspan="6">Add: CGST %</td><td>${cgst}</td></tr>-->
+<!--        <tr><td colspan="6">Add: SGST %</td><td>${sgst}</td></tr>-->
+<!--        <tr><td colspan="6">Add: IGST</td><td>${igst}</td></tr>-->
+        ${taxItems}
+        <tr><td colspan="6"><strong>Grand Total</strong></td><td><strong>${grandTotal}</strong></td></tr>
+        <tr><td colspan="7">Say: ${amountInWords}</td></tr>
+    </table>
+
+    <div class="note">
+        (Rupees in words)
+    </div>
+
+    <div class="signature">
+        <p>For ALFA ENTERPRISES</p>
+        <p><strong>Authorised Signatory</strong></p>
+    </div>
+</div>
+
+</body>
+</html>
